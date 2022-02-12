@@ -13,10 +13,9 @@ class ValidateHelper:
         """
         __init__ initializes the class.
         """
-        self.home = Path.home()
         self.docker = DockerHelper()
         self.file = FileHelper()
-        self.main_dir = f"{self.home}/{constants.MAIN_DIR}"
+        self.main_dir = constants.MAIN_DIR
         self.env_file_name = constants.ENV_FILE_NAME
         self.docker_compose_name = constants.DOCKER_COMPOSE_NAME
         self.docker_file_name = constants.DOCKERFILE_NAME
@@ -37,9 +36,6 @@ class ValidateHelper:
             return (
                 "docker-compose is not installed.\nPlease install docker-compose first."
             )
-
-        if not self.file.is_this_exists(self.main_dir):
-            self.file.create_directory(self.main_dir)
 
         return True
 
