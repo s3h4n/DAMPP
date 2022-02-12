@@ -5,7 +5,17 @@ from pathlib import Path
 
 
 class NewProject(object):
+    """
+    NewProject will create a new project with the given name and ports.
+
+    :param object: self
+    :type object: object
+    """
+
     def __init__(self):
+        """
+        __init__ will initialize the new project dialog.
+        """
         self.home = str(Path.home())
         self.file = FileHelper()
         self.main_directory = constants.MAIN_DIR
@@ -23,7 +33,13 @@ class NewProject(object):
         self.dockercompose_data = constants.DOCKERCOMPOSE
         self.php_file_data = constants.PHP_FILE
 
-    def show(self):
+    def show(self) -> None:
+        """
+        show will show the new project dialog.
+
+        :return: None
+        :rtype: None
+        """
         self.new_project = QtWidgets.QDialog()
         self.new_project.setObjectName("Dialog")
         self.new_project.setFixedSize(530, 390)
@@ -92,16 +108,25 @@ class NewProject(object):
             self.new_project.close()
             return self.create_project()
 
-    def retranslateUi(self, Dialog):
+    def retranslateUi(self, dialog: QtWidgets.QDialog) -> None:
+        """
+        retranslateUi will translate the new project dialog.
+
+        :param dialog: The new project dialog.
+        :type dialog: QtWidgets.QDialog
+        """
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "New Project"))
+        dialog.setWindowTitle(_translate("Dialog", "New Project"))
         self.web_port_label.setText(_translate("Dialog", "Apache/PHP"))
         self.pname_label.setText(_translate("Dialog", "Project Name"))
         self.db_port_label.setText(_translate("Dialog", "MySQL"))
         self.port_section_label.setText(_translate("Dialog", "Port Details"))
         self.pma_port_label.setText(_translate("Dialog", "PhpMyAdmin"))
 
-    def name_validate(self):
+    def name_validate(self) -> None:
+        """
+        name_validate will validate the project name.
+        """
         if len(self.p_name.text()) == 0:
             self.error_label.setText(
                 "<i style='color:red'>Project Name is required</i>"
@@ -120,7 +145,13 @@ class NewProject(object):
                     )
                     self.confirm_btn.setEnabled(False)
 
-    def port_validate(self, input_box):
+    def port_validate(self, input_box: QtWidgets.QLineEdit) -> None:
+        """
+        port_validate will validate the port number.
+
+        :param input_box: The input box to validate.
+        :type input_box: QtWidgets.QLineEdit
+        """
         if (
             not input_box.isdigit()
             or input_box == ""
@@ -133,7 +164,13 @@ class NewProject(object):
             self.confirm_btn.setEnabled(True)
             self.error_label.setText("")
 
-    def create_project(self):
+    def create_project(self) -> None:
+        """
+        create_project will create the project.
+
+        :return: None
+        :rtype: None
+        """
         project_dir = f"{self.main_directory}/{self.p_name.text()}"
         public_dir = f"{project_dir}/{self.public_directory}"
         env_file = f"{project_dir}/{self.env_file_name}"
