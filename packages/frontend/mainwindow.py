@@ -37,7 +37,6 @@ class Ui_MainWindow(object):
         self.about = About()
         self.edit_port_dialog = EditPort()
         self.new_project = NewProject()
-        self.port = self.file.find_ports(self.env_file_name)
 
     def setupUi(self, MainWindow: QtWidgets.QMainWindow) -> None:
         """
@@ -241,6 +240,7 @@ class Ui_MainWindow(object):
             self.create_log(
                 "<span style='color:green;'>All the requirements are met.</span>"
             )
+            self.port = self.file.find_ports(self.env_file_name)
 
     def create_log(self, message: str) -> None:
         """
