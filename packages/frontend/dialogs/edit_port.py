@@ -18,7 +18,6 @@ class EditPort(object):
         """
         self.file = FileHelper()
         self.env_file_name = constants.ENV_FILE_NAME
-        self.current_ports = self.file.find_ports(self.env_file_name)
         self.web_port_keyword = constants.WEB_PORT
         self.db_port_keyword = constants.DB_PORT
         self.pma_port_keyword = constants.PMA_PORT
@@ -30,6 +29,8 @@ class EditPort(object):
         :return: True if the dialog was closed with the confirm button, False otherwise.
         :rtype: bool
         """
+        self.current_ports = self.file.find_ports(self.env_file_name)
+
         self.edit_ports = QtWidgets.QDialog()
         self.edit_ports.setObjectName("Dialog")
         self.edit_ports.setFixedSize(530, 220)
