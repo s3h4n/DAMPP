@@ -13,7 +13,7 @@ class ValidateHelper:
         """
         __init__ initializes the class.
         """
-        self.home = str(Path.home())
+        self.home = Path.home()
         self.docker = DockerHelper()
         self.file = FileHelper()
         self.main_dir = f"{self.home}/{constants.MAIN_DIR}"
