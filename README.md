@@ -5,13 +5,17 @@ This can be run on any Ubuntu based system.
 
 ## Screenshots
 <img src="resources/screenshots/Screenshot from 2022-02-12 14-28-43.png"/>
-Home<br/>
+Home
+
 <img src="resources/screenshots/Screenshot from 2022-02-12 14-28-51.png"/>
-Add New Project<br/>
+Add New Project
+
 <img src="resources/screenshots/Screenshot from 2022-02-12 14-28-57.png"/>
-Edit Ports<br/>
+Edit Ports
+
 <img src="resources/screenshots/Screenshot from 2022-02-12 14-29-07.png"/>
-About<br/>
+About
+
 
 ## Requirements ✔️
 - Python3
