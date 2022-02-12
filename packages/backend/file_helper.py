@@ -1,6 +1,5 @@
 from subprocess import run
-from os import mkdir, chdir, listdir, access
-from pathlib import Path
+from os import mkdir, chdir, listdir, access, path
 
 
 class FileHelper:
@@ -48,6 +47,7 @@ class FileHelper:
 
         except Exception as e:
             print("Error: ", e)
+            print("Location:", path.realpath(__file__))
             return False
 
     @staticmethod
@@ -66,6 +66,7 @@ class FileHelper:
 
         except Exception as e:
             print("Error: ", e)
+            print("Location:", path.realpath(__file__))
             return False
 
     @staticmethod
@@ -86,6 +87,7 @@ class FileHelper:
 
         except Exception as e:
             print("Error: ", e)
+            print("Location:", path.realpath(__file__))
             return False
 
     @staticmethod
@@ -107,6 +109,7 @@ class FileHelper:
 
         except Exception as e:
             print("Error: ", e)
+            print("Location:", path.realpath(__file__))
             return False
 
     @staticmethod
@@ -131,6 +134,7 @@ class FileHelper:
 
         except Exception as e:
             print("Error: ", e)
+            print("Location:", path.realpath(__file__))
             return False
 
     @staticmethod
@@ -163,4 +167,5 @@ class FileHelper:
 
         except Exception as e:
             print("Error: ", e)
+            print("Location:", path.realpath(__file__))
             return False

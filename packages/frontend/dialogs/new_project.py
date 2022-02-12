@@ -18,13 +18,13 @@ class NewProject(object):
         """
         self.home = str(Path.home())
         self.file = FileHelper()
-        self.main_directory = constants.MAIN_DIR
+        self.main_directory = f"{self.home}/{constants.MAIN_DIR}"
         self.public_directory = constants.PUBLIC_DIR
         self.env_file_name = constants.ENV_FILE_NAME
         self.docker_compose_name = constants.DOCKER_COMPOSE_NAME
         self.docker_file_name = constants.DOCKERFILE_NAME
         self.php_file_name = constants.PHP_FILE_NAME
-        self.projects = self.file.list_directory(f"{self.home}/{self.main_directory}")
+        self.projects = self.file.list_directory(self.main_directory)
         self.project_keyword = constants.PROJECT_NAME
         self.web_port_keyword = constants.WEB_PORT
         self.db_port_keyword = constants.DB_PORT
@@ -180,12 +180,7 @@ class NewProject(object):
         compose_file = f"{project_dir}/{self.docker_compose_name}"
         php_file = f"{public_dir}/{self.php_file_name}"
 
-        env_file_data = f"""
-            {self.project_keyword}={self.p_name.text()}
-            {self.web_port_keyword}={ self.web_port.text()}
-            {self.db_port_keyword}={self.db_port.text()}
-            {self.pma_port_keyword}={ self.pma_port.text()}
-        """
+        env_file_data = f"{self.project_keyword}={self.p_name.text()}\n{self.web_port_keyword}={ self.web_port.text()}\n{self.db_port_keyword}={self.db_port.text()}\n{self.pma_port_keyword}={ self.pma_port.text()}"
 
         if self.file.create_directory(project_dir):
             if self.file.create_directory(public_dir):
