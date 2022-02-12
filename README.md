@@ -4,17 +4,17 @@ DAMPP (gui) is a Python based program to run simple webservers using **MySQL, Ph
 This can be run on any Ubuntu based system. 
 
 ## Screenshots
+Home screen
 <img src="resources/screenshots/Screenshot from 2022-02-12 14-28-43.png"/>
-Home
 
-<img src="resources/screenshots/Screenshot from 2022-02-12 14-28-51.png"/>
 Add New Project
+<img src="resources/screenshots/Screenshot from 2022-02-12 14-28-51.png"/>
 
-<img src="resources/screenshots/Screenshot from 2022-02-12 14-28-57.png"/>
 Edit Ports
+<img src="resources/screenshots/Screenshot from 2022-02-12 14-28-57.png"/>
 
-<img src="resources/screenshots/Screenshot from 2022-02-12 14-29-07.png"/>
 About
+<img src="resources/screenshots/Screenshot from 2022-02-12 14-29-07.png"/>
 
 
 ## Requirements ✔️
