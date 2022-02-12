@@ -5,16 +5,29 @@ from pathlib import Path
 
 
 class ValidateHelper:
+    """
+    Helper functions for validation.
+    """
+
     def __init__(self) -> None:
+        """
+        __init__ initializes the class.
+        """
         self.home = str(Path.home())
         self.docker = DockerHelper()
         self.file = FileHelper()
-        self.main_dir = constants.MAIN_DIR
+        self.main_dir = f"{self.home}/{constants.MAIN_DIR}"
         self.env_file_name = constants.ENVFILE_NAME
         self.docker_compose_name = constants.DOCKERCOMPOSE_NAME
         self.docker_file_name = constants.DOCKERFILE_NAME
 
     def dependancy_check(self) -> str or bool:
+        """
+        dependancy_check checks if the dependancies are installed.
+
+        :return: Error message if the dependancies are not installed, True otherwise.
+        :rtype: str or bool
+        """
         if not self.docker.is_docker_installed():
             return "Docker is not installed.\nPlease install docker first."
         elif not self.docker.is_docker_running():
@@ -30,7 +43,13 @@ class ValidateHelper:
 
         return True
 
-    def requirement_check(self) -> str:
+    def requirement_check(self) -> str or bool:
+        """
+        requirement_check checks if the requirements are met.
+
+        :return: Error message if the requirements are not met, True otherwise.
+        :rtype: str
+        """
         if not self.file.is_this_exists(self.env_file_name):
             return "<span style='color:red;'>.env environment file is not found. Please create a new project before using DAMPP.</span>"
 
