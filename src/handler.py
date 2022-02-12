@@ -7,13 +7,22 @@ import sys
 
 
 class Handler:
+    """
+    Handles the whole application.
+    """
+
     def __init__(self) -> None:
+        """
+        __init__ initializes the class.
+        """
         self.file = FileHelper()
         self.home = str(Path.home())
         self.main_directory = constants.MAIN_DIR
 
     def handler(self) -> None:
-
+        """
+        handler will handle the whole application.
+        """
         if self.file.is_this_exists(f"{self.home}/{self.main_directory}") != True:
             self.file.create_directory(self.main_directory)
 
