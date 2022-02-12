@@ -1,10 +1,12 @@
 from PyQt6 import QtCore, QtWidgets
 from ...backend import FileHelper
 from ....src import constants
+from pathlib import Path
 
 
 class NewProject(object):
     def __init__(self):
+        self.home = str(Path.home())
         self.file = FileHelper()
         self.main_directory = constants.MAIN_DIR
         self.public_directory = constants.PUBLIC_DIR
@@ -12,7 +14,7 @@ class NewProject(object):
         self.docker_compose_name = constants.DOCKERCOMPOSE_NAME
         self.docker_file_name = constants.DOCKERFILE_NAME
         self.php_file_name = constants.PHPFILE_NAME
-        self.projects = self.file.list_directory(self.main_directory)
+        self.projects = self.file.list_directory(f"{self.home}/{self.main_directory}")
         self.project_keyword = constants.PROJECT_NAME
         self.web_port_keyword = constants.WEB_PORT
         self.db_port_keyword = constants.DB_PORT
