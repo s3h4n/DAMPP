@@ -1,6 +1,6 @@
 from ..packages import Ui_MainWindow
 from ..packages import FileHelper
-from PyQt6 import QtWidgets
+from PyQt5 import QtWidgets
 from pathlib import Path
 from . import constants
 import sys

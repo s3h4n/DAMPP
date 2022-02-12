@@ -7,7 +7,7 @@ from .dialogs import EditPort
 from .dialogs import NewProject
 from .dialogs import Error
 from .dialogs import Confirm
-from PyQt6 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtGui, QtWidgets
 from pathlib import Path
 from sys import exit
 import time

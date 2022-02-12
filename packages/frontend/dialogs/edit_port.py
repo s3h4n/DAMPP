@@ -1,4 +1,4 @@
-from PyQt6 import QtCore, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 from ....src import constants
 from ...backend import FileHelper
 from ....src import constants
