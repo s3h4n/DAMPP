@@ -85,7 +85,7 @@ class EditPort(object):
                 [self.db_port_keyword, self.db_port.text()],
                 [self.pma_port_keyword, self.pma_port.text()],
             ]
-            return self.edit_ports(result)
+            return self.edit(result)
         else:
             return False
 
@@ -123,16 +123,16 @@ class EditPort(object):
             self.confirm_btn.setEnabled(True)
             self.error_label.setText("")
 
-    def edit_ports(self, new_ports: list) -> bool:
+    def edit(self, new_ports: list) -> bool:
         """
-        edit_ports will be used to edit the ports of the server.
+        edit will be used to edit the ports of the server.
 
         :param new_ports: The new ports to be used.
         :type new_ports: list
         :return: True if the ports were edited successfully, False otherwise.
         :rtype: bool
         """
-        if self.file.change_ports(new_ports):
+        if self.file.change_ports(self.env_file_name, new_ports):
             self.edit_ports.close()
             return True
 

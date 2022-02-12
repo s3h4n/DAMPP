@@ -28,9 +28,9 @@ About
 - Docker-compose
 
 ## Installation ✨
-Install PyQt6 using pip.
+Install PyQt5 using pip.
 ```python
-pip install PyQt6
+pip install PyQt5
 ```
 
 Clone the repository.

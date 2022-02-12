@@ -136,27 +136,27 @@ class Ui_MainWindow(object):
 
         MainWindow.setStatusBar(self.statusbar)
 
-        self.actionNew_Project = QtGui.QAction(MainWindow)
+        self.actionNew_Project = QtWidgets.QAction(MainWindow)
         self.actionNew_Project.setObjectName("actionNew_Project")
         self.actionNew_Project.triggered.connect(self.create_project)
 
-        self.actionQuit = QtGui.QAction(MainWindow)
+        self.actionQuit = QtWidgets.QAction(MainWindow)
         self.actionQuit.setObjectName("actionQuit")
 
-        self.actionEdit_Ports = QtGui.QAction(MainWindow)
+        self.actionEdit_Ports = QtWidgets.QAction(MainWindow)
         self.actionEdit_Ports.setObjectName("actionEdit_Ports")
         self.actionEdit_Ports.setEnabled(False)
         self.actionEdit_Ports.triggered.connect(self.edit_ports)
 
-        self.actionRemove_Services = QtGui.QAction(MainWindow)
+        self.actionRemove_Services = QtWidgets.QAction(MainWindow)
         self.actionRemove_Services.setObjectName("actionRemove_Services")
         self.actionRemove_Services.setEnabled(False)
         self.actionRemove_Services.triggered.connect(self.remove_services)
 
-        self.actionDAMPP_Help = QtGui.QAction(MainWindow)
+        self.actionDAMPP_Help = QtWidgets.QAction(MainWindow)
         self.actionDAMPP_Help.setObjectName("actionDAMPP_Help")
 
-        self.actionAbout = QtGui.QAction(MainWindow)
+        self.actionAbout = QtWidgets.QAction(MainWindow)
         self.actionAbout.setObjectName("actionAbout")
         self.actionAbout.triggered.connect(self.about.show)
 
@@ -431,6 +431,8 @@ class Ui_MainWindow(object):
         else:
             self.create_log(warning_msg)
             self.error.show(warning_msg)
+
+        self.port = self.file.find_ports(self.env_file_name)
 
     def remove_services(self) -> None:
         """
