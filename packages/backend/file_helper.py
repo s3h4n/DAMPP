@@ -9,12 +9,6 @@ class FileHelper:
     """
 
     @staticmethod
-    def __init__(self) -> None:
-        """
-        __init__ initializes the class.
-        """
-
-    @staticmethod
     def is_this_exists(file_path: str) -> bool:
         """
         is_this_exists checks if a file exists.
