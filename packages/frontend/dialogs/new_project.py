@@ -20,17 +20,17 @@ class NewProject(object):
         self.file = FileHelper()
         self.main_directory = constants.MAIN_DIR
         self.public_directory = constants.PUBLIC_DIR
-        self.env_file_name = constants.ENVFILE_NAME
-        self.docker_compose_name = constants.DOCKERCOMPOSE_NAME
+        self.env_file_name = constants.ENV_FILE_NAME
+        self.docker_compose_name = constants.DOCKER_COMPOSE_NAME
         self.docker_file_name = constants.DOCKERFILE_NAME
-        self.php_file_name = constants.PHPFILE_NAME
+        self.php_file_name = constants.PHP_FILE_NAME
         self.projects = self.file.list_directory(f"{self.home}/{self.main_directory}")
         self.project_keyword = constants.PROJECT_NAME
         self.web_port_keyword = constants.WEB_PORT
         self.db_port_keyword = constants.DB_PORT
         self.pma_port_keyword = constants.PMA_PORT
         self.dockerfile_data = constants.DOCKERFILE
-        self.dockercompose_data = constants.DOCKERCOMPOSE
+        self.dockercompose_data = constants.DOCKER_COMPOSE
         self.php_file_data = constants.PHP_FILE
 
     def show(self) -> bool:

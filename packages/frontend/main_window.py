@@ -27,7 +27,7 @@ class Ui_MainWindow(object):
         """
         self.home = Path.home()
         self.main_directory = constants.MAIN_DIR
-        self.env_file_name = constants.ENVFILE_NAME
+        self.env_file_name = constants.ENV_FILE_NAME
         self.public_directory = constants.PUBLIC_DIR
         self.docker = DockerHelper()
         self.file = FileHelper()

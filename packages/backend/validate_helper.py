@@ -17,8 +17,8 @@ class ValidateHelper:
         self.docker = DockerHelper()
         self.file = FileHelper()
         self.main_dir = f"{self.home}/{constants.MAIN_DIR}"
-        self.env_file_name = constants.ENVFILE_NAME
-        self.docker_compose_name = constants.DOCKERCOMPOSE_NAME
+        self.env_file_name = constants.ENV_FILE_NAME
+        self.docker_compose_name = constants.DOCKER_COMPOSE_NAME
         self.docker_file_name = constants.DOCKERFILE_NAME
 
     def dependancy_check(self) -> str or bool:

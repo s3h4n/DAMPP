@@ -17,7 +17,7 @@ class EditPort(object):
         __init__ will be used to initialize the EditPort class.
         """
         self.file = FileHelper()
-        self.env_file_name = constants.ENVFILE_NAME
+        self.env_file_name = constants.ENV_FILE_NAME
         self.current_ports = self.file.find_ports(self.env_file_name)
         self.web_port_keyword = constants.WEB_PORT
         self.db_port_keyword = constants.DB_PORT
