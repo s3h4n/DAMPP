@@ -33,12 +33,12 @@ class NewProject(object):
         self.dockercompose_data = constants.DOCKERCOMPOSE
         self.php_file_data = constants.PHP_FILE
 
-    def show(self) -> None:
+    def show(self) -> bool:
         """
         show will show the new project dialog.
 
-        :return: None
-        :rtype: None
+        :return: True if the dialog was created successfully.
+        :rtype: bool
         """
         self.new_project = QtWidgets.QDialog()
         self.new_project.setObjectName("Dialog")
@@ -116,7 +116,9 @@ class NewProject(object):
         :type dialog: QtWidgets.QDialog
         """
         _translate = QtCore.QCoreApplication.translate
+
         dialog.setWindowTitle(_translate("Dialog", "New Project"))
+
         self.web_port_label.setText(_translate("Dialog", "Apache/PHP"))
         self.pname_label.setText(_translate("Dialog", "Project Name"))
         self.db_port_label.setText(_translate("Dialog", "MySQL"))
@@ -164,12 +166,12 @@ class NewProject(object):
             self.confirm_btn.setEnabled(True)
             self.error_label.setText("")
 
-    def create_project(self) -> None:
+    def create_project(self) -> bool:
         """
-        create_project will create the project.
+        create_project will create a new project.
 
-        :return: None
-        :rtype: None
+        :return: True if the project was created successfully. False otherwise.
+        :rtype: bool
         """
         project_dir = f"{self.main_directory}/{self.p_name.text()}"
         public_dir = f"{project_dir}/{self.public_directory}"

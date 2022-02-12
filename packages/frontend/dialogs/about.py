@@ -10,7 +10,6 @@ class About(object):
         """
         show will show the about dialog.
         """
-
         self.about = QtWidgets.QDialog()
         self.about.setObjectName("Dialog")
         self.about.setFixedSize(400, 390)
