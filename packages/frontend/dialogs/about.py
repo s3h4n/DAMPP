@@ -2,7 +2,14 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 
 
 class About(object):
+    """
+    About will be shown when the user clicks on the about button.
+    """
+
     def show(self) -> None:
+        """
+        show will show the about dialog.
+        """
 
         self.about = QtWidgets.QDialog()
         self.about.setObjectName("Dialog")
@@ -39,11 +46,16 @@ class About(object):
 
         self.about.exec()
 
-    def retranslateUi(self, Dialog):
+    def retranslateUi(self, dialog: QtWidgets.QDialog) -> None:
+        """
+        retranslateUi will translate the about dialog.
 
+        :param Dialog: The about dialog.
+        :type Dialog: QDialog
+        """
         _translate = QtCore.QCoreApplication.translate
 
-        Dialog.setWindowTitle(_translate("Dialog", "About"))
+        dialog.setWindowTitle(_translate("Dialog", "About"))
 
         self.details.setText(
             _translate(
