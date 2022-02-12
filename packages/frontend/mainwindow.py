@@ -8,12 +8,24 @@ from .dialogs import NewProject
 from .dialogs import Error
 from .dialogs import Confirm
 from PyQt6 import QtCore, QtGui, QtWidgets
-import sys
+from pathlib import Path
+from sys import exit
 import time
 
 
 class Ui_MainWindow(object):
+    """
+    Ui_MainWindow is the main window of the application.
+
+    :param object: self
+    :type object: object
+    """
+
     def __init__(self) -> None:
+        """
+        __init__ initializes the main window of the application.
+        """
+        self.home = Path.home()
         self.main_directory = constants.MAIN_DIR
         self.env_file_name = constants.ENVFILE_NAME
         self.public_directory = constants.PUBLIC_DIR
@@ -27,10 +39,16 @@ class Ui_MainWindow(object):
         self.new_project = NewProject()
         self.port = self.file.find_ports(self.env_file_name)
 
-    def setupUi(self, MainWindow):
+    def setupUi(self, MainWindow: QtWidgets.QMainWindow) -> None:
+        """
+        setupUi sets up the main window of the application.
+
+        :param MainWindow: MainWindow
+        :type MainWindow: QMainWindow
+        """
         if self.validate.dependancy_check() != True:
             self.error.show(self.validate.dependancy_check())
-            sys.exit(0)
+            exit(0)
 
         MainWindow.setObjectName("MainWindow")
         MainWindow.setFixedSize(800, 600)
@@ -164,11 +182,17 @@ class Ui_MainWindow(object):
 
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, MainWindow: QtWidgets.QMainWindow) -> None:
+        """
+        retranslateUi translates the UI.
 
+        :param MainWindow: The main window.
+        :type MainWindow: QMainWindow
+        """
         _translate = QtCore.QCoreApplication.translate
 
         MainWindow.setWindowTitle(_translate("MainWindow", "DAMPP"))
+
         self.start_stop_btn.setText(_translate("MainWindow", "Start"))
         self.plocation_label.setText(_translate("MainWindow", "Project Location"))
         self.op_log_label.setText(_translate("MainWindow", "Output Log"))
@@ -190,15 +214,23 @@ class Ui_MainWindow(object):
         self.actionDAMPP_Help.setShortcut(_translate("MainWindow", "Ctrl+H"))
         self.actionAbout.setText(_translate("MainWindow", "About "))
 
-    def load_projects(self):
+    def load_projects(self) -> None:
+        """
+        load_projects loads the projects from the main directory.
+        """
         self.plocation.clear()
-        for project in self.file.list_directory(self.main_directory):
+
+        for project in self.file.list_directory(f"{self.home}/{self.main_directory}"):
             self.plocation.addItem(project)
 
-    def goto_project(self):
-
+    def goto_project(self) -> None:
+        """
+        goto_project goes to the selected project.
+        """
         self.directory = self.plocation.currentText()
+
         self.file.change_directory(self.directory)
+
         if self.validate.requirement_check() != True:
             self.button_state(False)
             self.action_state(False)
@@ -210,10 +242,16 @@ class Ui_MainWindow(object):
                 "<span style='color:green;'>All the requirements are met.</span>"
             )
 
-    def create_log(self, message: str):
+    def create_log(self, message: str) -> None:
+        """
+        create_log creates the log.
 
+        :param message: The message to be displayed.
+        :type message: str
+        """
         self.current_time = time.localtime()
         self.current_time = time.strftime("%H:%M:%S", self.current_time)
+
         self.op_log.append(
             "<html><body>"
             + "<b style='color:blue;'>"
@@ -224,19 +262,32 @@ class Ui_MainWindow(object):
             + "<br/></body></html>"
         )
 
-    def button_state(self, state):
+    def button_state(self, state: bool) -> None:
+        """
+        button_state changes the state of the buttons.
 
+        :param state: The state of the buttons.
+        :type state: bool
+        """
         self.start_stop_btn.setEnabled(state)
         self.lhost_btn.setEnabled(state)
         self.pma_btn.setEnabled(state)
         self.flocation_btn.setEnabled(state)
 
-    def action_state(self, state):
+    def action_state(self, state: bool) -> None:
+        """
+        action_state changes the state of the actions.
 
+        :param state: The state of the actions.
+        :type state: bool
+        """
         self.actionEdit_Ports.setEnabled(state)
         self.actionRemove_Services.setEnabled(state)
 
-    def service_state(self):
+    def service_state(self) -> None:
+        """
+        service_state changes the state of the services.
+        """
         ready_msg_1 = "Starting..."
         ready_msg_2 = "Stopping..."
         success_msg_1 = "Service started."
@@ -262,7 +313,10 @@ class Ui_MainWindow(object):
                 self.create_log(error_msg_2)
                 self.error.show(error_msg_2)
 
-    def open_localhost(self):
+    def open_localhost(self) -> None:
+        """
+        open_localhost opens the localhost.
+        """
         ready_msg = "Opening localhost..."
         success_msg = "Opened localhost."
         warning_msg = "Please start the service first."
@@ -281,7 +335,10 @@ class Ui_MainWindow(object):
             self.create_log(warning_msg)
             self.error.show(warning_msg)
 
-    def open_pma(self):
+    def open_pma(self) -> None:
+        """
+        open_pma opens the phpmyadmin.
+        """
         ready_msg = "Opening phpmyadmin..."
         success_msg = "Opened phpmyadmin."
         warning_msg = "Please start the service first."
@@ -300,12 +357,17 @@ class Ui_MainWindow(object):
             self.create_log(warning_msg)
             self.error.show(warning_msg)
 
-    def open_project(self):
+    def open_project(self) -> None:
+        """
+        open_project opens the project.
+        """
+
         success_msg = "Opened project."
         error_msg = "Failed to open project folder."
         url = f"{self.directory}/{self.public_directory}"
 
         self.create_log("Opening project...")
+
         try:
             self.file.open_this(url)
             self.create_log(success_msg)
@@ -313,12 +375,16 @@ class Ui_MainWindow(object):
             self.create_log(error_msg)
             self.error.show(error_msg)
 
-    def create_project(self):
+    def create_project(self) -> None:
+        """
+        create_project creates the project.
+        """
         ready_msg = "Adding new project..."
         success_msg = "Project created."
         error_msg = "Failed to create project."
 
         self.create_log(ready_msg)
+
         if self.new_project.show():
             self.create_log(success_msg)
         else:
@@ -327,7 +393,10 @@ class Ui_MainWindow(object):
 
         self.load_projects()
 
-    def exit_app(self):
+    def exit_app(self) -> None:
+        """
+        exit_app will exit the application.
+        """
         ready_msg = "Stopping services..."
         confirm_msg = "Are you sure you want to quit?"
         success_msg = "Exited."
@@ -337,14 +406,16 @@ class Ui_MainWindow(object):
             self.create_log(ready_msg)
             self.docker.stop()
             self.create_log(success_msg)
-            sys.exit()
+            exit()
         else:
             self.create_log(cancel_msg)
 
-    def edit_ports(self):
+    def edit_ports(self) -> None:
+        """
+        edit_ports will edit the ports.
+        """
         ready_msg = "Editing ports..."
         success_msg = "Ports edited."
-        cancel_msg = "Ports edit canceled."
         warning_msg = "Please start the service first."
         error_msg = "Failed to edit ports."
 
@@ -361,7 +432,10 @@ class Ui_MainWindow(object):
             self.create_log(warning_msg)
             self.error.show(warning_msg)
 
-    def remove_services(self):
+    def remove_services(self) -> None:
+        """
+        remove_services will remove the services.
+        """
         ready_msg = "Removing services..."
         confirm_msg = "Are you sure you want to remove the services?"
         success_msg = "Services removed."
