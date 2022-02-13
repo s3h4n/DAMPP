@@ -8,19 +8,19 @@ This can be run on any `Ubuntu` based system.
 
 Home screen
 
-<img src="../dampp/resources/screenshots/Screenshot from 2022-02-12 14-28-43.png"/>
+<img src="https://github.com/s3h4n/dampp/blob/7e814aed14f3328bea5647c0c7b967b4201aa3d7/dampp/resources/screenshots/Screenshot%20from%202022-02-12%2014-28-43.png"/>
 
 Add New Project
 
-<img src="../dampp/resources/screenshots/Screenshot from 2022-02-12 14-28-51.png"/>
+<img src="https://github.com/s3h4n/dampp/blob/7e814aed14f3328bea5647c0c7b967b4201aa3d7/dampp/resources/screenshots/Screenshot%20from%202022-02-12%2014-28-51.png"/>
 
 Edit Ports
 
-<img src="../dampp/resources/screenshots/Screenshot from 2022-02-12 14-28-57.png"/>
+<img src="https://github.com/s3h4n/dampp/blob/7e814aed14f3328bea5647c0c7b967b4201aa3d7/dampp/resources/screenshots/Screenshot%20from%202022-02-12%2014-28-57.png"/>
 
 About
 
-<img src="../dampp/resources/screenshots/Screenshot from 2022-02-12 14-29-07.png"/>
+<img src="https://github.com/s3h4n/dampp/blob/7e814aed14f3328bea5647c0c7b967b4201aa3d7/dampp/resources/screenshots/Screenshot%20from%202022-02-12%2014-29-07.png"/>
 
 
 ## Requirements ✔️
