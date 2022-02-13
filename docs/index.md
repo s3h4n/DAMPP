@@ -1,37 +1,98 @@
-## Welcome 
+# DAMPP 🚢
 
-You can use the [editor on GitHub](https://github.com/s3h4n/dampp/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+DAMPP (gui) is a Python based program to run simple webservers using **MySQL, Php, Apache and PhpMyAdmin** inside of Docker containers. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This can be run on any `Ubuntu` based system. 
 
-### Markdown
+## Screenshots 📷
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Home screen
 
-```markdown
-Syntax highlighted code block
+<img src="../dampp/resources/screenshots/Screenshot from 2022-02-12 14-28-43.png"/>
 
-# Header 1
-## Header 2
-### Header 3
+Add New Project
 
-- Bulleted
-- List
+<img src="../dampp/resources/screenshots/Screenshot from 2022-02-12 14-28-51.png"/>
 
-1. Numbered
-2. List
+Edit Ports
 
-**Bold** and _Italic_ and `Code` text
+<img src="../dampp/resources/screenshots/Screenshot from 2022-02-12 14-28-57.png"/>
 
-[Link](url) and ![Image](src)
+About
+
+<img src="../dampp/resources/screenshots/Screenshot from 2022-02-12 14-29-07.png"/>
+
+
+## Requirements ✔️
+
+- Python3
+- pip
+- Docker
+- Docker-compose
+
+## Installation ✨
+
+Install `PyQt5` using pip.
+
+```python
+pip install PyQt5
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+Create a directory called `.bin` in your home directory.
 
-### Jekyll Themes
+```bash
+mkdir ~/.bin
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/s3h4n/dampp/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Change current directory to `.bin`.
 
-### Support or Contact
+```bash
+cd ~/.bin
+```
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Clone the repository.
+
+```bash
+git clone https://github.com/s3h4n/dampp.git
+```
+
+## Confiuguration 🔧
+
+Create aliases for your shell config file so you can run the program easily.
+
+### Bash
+
+Add following line to your `.bashrc` file. 
+
+You can find this file in your home `~/` directory.
+
+```
+alias dampp='~/.bin/dampp/dampp.sh'
+```
+
+### Fish
+
+Add following line to your `config.fish` file. 
+
+You can find this file in `~/.config/fish` location.
+
+```
+alias dampp='~/.bin/dampp/dampp.sh'
+```
+
+For other shells like `zsh`, you can also add the aliases.
+
+## Usage 🔥
+
+Simply type following command in your terminal.
+
+```bash
+dampp
+```
+## Contributing 🤝
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+
