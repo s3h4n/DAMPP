@@ -1,27 +1,30 @@
 # DAMPP 🚢
+
 DAMPP (gui) is a Python based program to run simple webservers using **MySQL, Php, Apache and PhpMyAdmin** inside of Docker containers. 
 
 This can be run on any `Ubuntu` based system. 
 
 ## Screenshots 📷
+
 Home screen
 
-<img src="resources/screenshots/Screenshot from 2022-02-12 14-28-43.png"/>
+<img src="dampp/resources/screenshots/Screenshot from 2022-02-12 14-28-43.png"/>
 
 Add New Project
 
-<img src="resources/screenshots/Screenshot from 2022-02-12 14-28-51.png"/>
+<img src="dampp/resources/screenshots/Screenshot from 2022-02-12 14-28-51.png"/>
 
 Edit Ports
 
-<img src="resources/screenshots/Screenshot from 2022-02-12 14-28-57.png"/>
+<img src="dampp/resources/screenshots/Screenshot from 2022-02-12 14-28-57.png"/>
 
 About
 
-<img src="resources/screenshots/Screenshot from 2022-02-12 14-29-07.png"/>
+<img src="dampp/resources/screenshots/Screenshot from 2022-02-12 14-29-07.png"/>
 
 
 ## Requirements ✔️
+
 - Python3
 - pip
 - Docker
@@ -77,7 +80,7 @@ You can find this file in `~/.config/fish` location.
 alias dampp='~/.bin/dampp/dampp.sh'
 ```
 
-For other shells like `zsh`, you can also add aliase.
+For other shells like `zsh`, you can also add the aliases.
 
 ## Usage 🔥
 
