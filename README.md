@@ -53,7 +53,7 @@ cd ~/.bin
 Clone the repository.
 
 ```bash
-git clone https://github.com/s3h4n/dampp.git
+git clone https://github.com/s3h4n/DAMPP.git
 ```
 
 ## Confiuguration 🔧
